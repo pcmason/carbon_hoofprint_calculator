@@ -1,0 +1,678 @@
+<!--
+The following javascript links can be found in this github directory
+-->
+<LINK href="styles.css" rel="stylesheet" type="text/css">
+  <script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script language="javascript" type="text/javascript" src="jquery.msAccordion.js"></script>
+<script language="javascript" type="text/javascript" src="jquery.tipsy.js"></script>
+<script language="javascript" type="text/javascript" src="highchart.js"></script>
+<script language="javascript" type="text/javascript" src="carbon_calculator.js"></script>  
+<!--
+Below we have a progress bar which denotes which part of the form the user is filling out
+-->
+<!-- multistep form -->
+<form id="msform">
+    <!-- progressbar -->
+    <ul id="progressbar">
+        <li class="active">Account Setup</li>
+        <li>Transportation</li>
+        <li>Partying</li>
+        <li>Consumption</li>
+        <li>Energy</li>
+        <li>Food</li>
+        <li>Waste</li>
+        <li>Water</li>
+        <li>Getting Involved!</li>
+        <li>Results</li>
+    </ul>
+   <!--
+    Each fieldset is a rpresentation of a tab or page of the form that the user fills out
+   -->
+    <!--
+    The following field set is regarding a living situation
+    -->
+    <fieldset>
+        <!--
+        In this fieldset we will go over what each of the aspects of the fieldset denote so it is easier to understand all of the fieldsets.
+        Each starts with a header, and is made up of either text inputs, radio buttons, or select menus
+        -->
+      <h2 class="fs-title">Please select a living situation</h2>
+            <!--
+    The following is an example of a radio button
+        -->
+      <section class="section">
+        <div class="container">
+          <input type="radio" id="radio-1" name="radio_commuter" value="on_campus" >
+          <label for="radio-1"><span class="radio">On Campus</span></label>
+        </div>
+        <div class="container">
+          <input type="radio" id="radio-2" name="radio_commuter" value="full_commuter">
+          <label for="radio-2"><span class="radio">Off Campus/Full Time Commuter or Part Time Commuter</span></label>
+        </div>
+      </section>
+
+      <input type="button" name="next" class="next action-button" value="Next" />
+
+    </fieldset>
+
+    <!--
+    The following field set is regarding transportation
+    -->
+    <fieldset>
+  		<h2 class="fs-title">Transportation</h2>
+  		<h3 class="fs-subtitle">Do you longboard, skateboard, bike or walk to class?</h3>
+
+  		<section id="first" class="section">
+      	<div class="container">
+        	<input type="radio" id="radio-4" name="trans_radio_lsb" value="yes" onclick="display_comment('comment_transportation_lsb','Great decision! You are not only staying healthy, but you are reducing your carbon emissions.')">
+        	<label for="radio-4"><span class="radio">Yes</span></label>
+      	</div>
+      	<div class="container">
+        	<input type="radio" id="radio-5" name="trans_radio_lsb" value="no" onclick="display_comment('comment_transportation_lsb','You might want to consider using one of these to help you get to class. Not only will you stay fit, but you can also reduce your carbon emissions.')">
+        	<label for="radio-5"><span class="radio">No</span></label>
+      	</div>
+  			<p class="pop_up_comment" id="comment_transportation_lsb"></p>
+  		</section>
+
+  		<h3 class="fs-subtitle">If you answered no please seclect on of the following:</h3>
+
+        <!--
+    The following is an example of a pull down menu  id="trans_select_car"
+        -->
+  		<select class="soflow">
+  			<option>Select an Option</option>
+    		<option value="no_car">No Car</option>
+  			<option value="small">Small</option>
+  			<option value="average">Average</option>
+  			<option value="suv">SUV/Truck</option>
+  			<option value="hybrid">Hybrid</option>
+  		</select>
+
+    <!--
+    The following is an example of a text input
+    -->
+  		<h3 class="fs-subtitle"> Approximately how many miles do you drive per month </h3>
+  		<input class="stdInput" id="trans_input_car_miles" type="text"  size="4" maxlength="4" />
+  		<h3 class="fs-subtitle"> Miles </h3
+  		>
+
+  		<h3 class="fs-subtitle">Do you use the bus? </h3
+  		>
+
+  		<section class="section">
+  			<div class="container">
+  				<input type="radio" id="radio-6" name="trans_radio_use_bus" value="yes" onclick="display_question('show','trans_input_bus_miles')">
+  				<label for="radio-6"><span class="radio">Yes</span></label>
+  			</div>
+  			<div class="container">
+  				<input type="radio" id="radio-7" name="trans_radio_use_bus" value="no" onclick="display_question('hide','trans_input_bus_miles')">
+  				<label for="radio-7"><span class="radio">No</span></label>
+  			</div>
+  		</section>
+
+  		<h3 class="fs-subtitle"> Approximately how many miles do you ride the bus per month </h3>
+  		<input class="stdInput" id="trans_input_bus_miles" type="text"  size="4" maxlength="4" />
+  		<h3 class="fs-subtitle"> Miles </h3
+  		>
+
+  		<h3 class="fs-subtitle">Do you use Bart or Caltrain?</h3>
+
+  		<section class="section">
+  			<div class="container">
+  				<input type="radio" id="radio-8" name="trans_radio_use_train" value="yes" onclick="display_question('show','trans_input_train_miles')">
+  				<label for="radio-8"><span class="radio">Yes</span></label>
+  			</div>
+  			<div class="container">
+  				<input type="radio" id="radio-9" name="trans_radio_use_train" value="no" onclick="display_question('hide','trans_input_train_miles')">
+  				<label for="radio-9"><span class="radio">No</span></label>
+  			</div>
+  		</section>
+  		
+  		<h3 class="fs-subtitle"> Approximately how many miles do you ride Bart and Caltrain per month </h3>
+  		<input class="stdInput" id="trans_input_bart_miles" type="text"  size="4" maxlength="4" />
+  		<h3 class="fs-subtitle"> Miles </h3
+  		>
+
+  		<h3 class="fs-subtitle">Have you traveled or do you plan to travel by airplane this year?</h3>
+
+  		<section class="section">
+  			<div class="container">
+  				<input type="radio" id="radio-10" name="trans_radio_use_plane" value="yes" onclick="display_question('show','trans_input_plane_miles')">
+  				<label for="radio-10"><span class="radio">Yes</span></label>
+  			</div>
+  			<div class="container">
+  				<input type="radio" id="radio-11" name="trans_radio_use_plane" value="no" onclick="display_question('hide','trans_input_plane_miles')">
+  				<label for="radio-11"><span class="radio">No</span></label>
+  			</div>
+  		</section>
+  		
+  		<h3 class="fs-subtitle"> Approximately how many miles do you fly per year <br>
+  		(Chicago to San Jose = 1,839.81 miles. New York to San Jose = 2551.63 miles. Seattle to San Jose = 710.61 miles) </h3>
+  		<input class="stdInput" id="trans_input_plane_miles" type="text"  size="4" maxlength="4" />
+  		<h3 class="fs-subtitle"> Miles </h3
+  		>
+            
+  		<input type="button" name="previous" class="previous action-button" value="Previous" />
+  		<input type="button" name="next" class="next action-button" value="Next" />
+  	</fieldset>
+
+    <!--
+    The following field set is regarding partying
+    -->
+    <fieldset>
+  		<h2 class="fs-title">Partying</h2>
+  		<h3 class="fs-subtitle">How many nights a week do you go out?</h3>
+  			<input class="stdInput" id="nights_partying" type="text"  size="1" maxlength="1"/>
+  		<h3 class="fs-subtitle">Nights</h3>
+  		<h3 class="fs-subtitle">How many red cups do you use on an average/party night?</h3>
+  			<input class="stdInput" id="amount_red_cups" type="text"  size="3" maxlength="3"/>
+  		<h3 class="fs-subtitle">Red Cups</h3>
+  		<h3 class="fs-subtitle">How many beers do you drink on average per party night?</h3>
+  			<input class="stdInput" id="partying_beers" type="text"  size="3" maxlength="3"/>
+  		<h3 class="fs-subtitle">Beers</h3>
+  		<h3 class="fs-subtitle">How many nights do you pre-game?</h3>
+  			<input class="stdInput" id="nights_pregame" type="text" size="4" maxlength="4"/>
+  		<h3 class="fs-subtitle">Nights</h3>
+
+  		<h3 class="fs-subtitle">Do you play drinking games?</h3>
+
+  		<section class="section">
+  			<div class="container">
+  				<input type="radio" id="radio-12" name="is_play_drinking_games" value="yes" onclick="display_comment('comment_partying_drinking_games','Maybe consider limiting the number of red cups you use per game...or pull out your reusable cups.')"/>
+  				<label for="radio-12"><span class="radio">Yes</span></label>
+  			</div>
+  			<div class="container">
+  				<input type="radio" id="radio-13" name="is_play_drinking_games" value="no"  onclick="display_comment('comment_partying_drinking_games','This may help keep your carbon footprint smaller')"/>
+  				<label for="radio-13"><span class="radio">No</span></label>
+  			</div>
+  		</section>
+
+  			<p class="pop_up_comment" id="comment_partying_drinking_games"></p>
+
+  		<h3 class="fs-subtitle">Do you use reusable cups? </h3>
+
+  		<section class="section">
+  			<div class="container">
+  				<input type="radio" id="radio-14" name="is_use_reusable_cups" value="yes" onclick="display_comment('comment_partying_reusable_cups','Way to go! Just make sure you wash them well! ')"/>
+  				<label for="radio-14"><span class="radio">Yes</span></label>
+  			</div>
+  			<div class="container">
+  				<input type="radio" id="radio-15" name="is_use_reusable_cups" value="no" onclick="display_comment('comment_partying_reusable_cups','Using 100 solo cups (five games of beer pong) is equal to nearly using a gallon of gasoline.')"/>
+  				<label for="radio-15"><span class="radio">No</span></label>
+  			</div>
+  			<p class="pop_up_comment" id="comment_partying_reusable_cups"></p>
+  		</section>
+
+  		<input type="button" name="previous" class="previous action-button" value="Previous" />
+  		<input type="button" name="next" class="next action-button" value="Next" />
+  	</fieldset>
+            
+     <!--
+    The following field set is regarding Consumption
+    -->
+
+    <fieldset>
+      <h2 class="fs-title">Consumption</h2>
+      <h3 class="fs-subtitle">Approximately how many soft-cover books do you buy/quarter?</h3>
+        <input class="stdInput" id="soft_cover_per_quarter" type="text"  size="2" maxlength="4"/>
+      <h3 class="fs-subtitle">Books</h3>
+      <h3 class="fs-subtitle">Approximately how many hard-cover books do you buy/quarter?</h3>
+        <input class="stdInput" id="hard_cover_per_quarter" type="text"  size="2" maxlength="4"/>
+      <h3 class="fs-subtitle">Books</h3>
+      <h3 class="fs-subtitle">How often do you buy a new article of clothing in a given month?</h3>
+        <input class="stdInput" id="clothing_per_month" type="text"  size="2" maxlength="4"/>
+      <h3 class="fs-subtitle">Clothing/Month</h3>
+      <h3 class="fs-subtitle">If you drink your water from nonrefillable plastic bottles, how many do you buy/week?</h3>
+        <input class="stdInput" id="consumption_plastic_bottle" type="text"  size="5" maxlength="4"/>
+      <h3 class="fs-subtitle">Bottles</h3>
+      <h3 class="fs-subtitle">How long have you had your current cell phone? Please approximate in years.</h3>
+        <input class="stdInput" id="duration_owning_cell_phone" type="text"  size="2" maxlength="4"/>
+      <h3 class="fs-subtitle">Years</h3>
+
+      <section class="section">
+        <div class="container">
+          <input type="radio" id="radio-16" name="is_phone" value="smart_phone" /> &nbsp;&nbsp;
+          <label for="radio-16"><span class="radio">Smart Phone</span></label>
+        </div>
+        <div class="container">
+          <input type="radio" id="radio-17" name="is_phone" value="mobile_phone"/>
+          <label for="radio-17"><span class="radio">Other Phone</span></label>
+        </div>
+      </section>
+
+      <input type="button" name="previous" class="previous action-button" value="Previous" />
+      <input type="button" name="next" class="next action-button" value="Next" />
+    </fieldset>
+
+    <!--
+    The following field set is regarding energy
+    -->
+    <fieldset>
+  		<h2 class="fs-title">Energy</h2>
+  		<h2 class="fs-subtitle"> If you're an on campus resident choose from the following dorms:</h2>
+
+  		<select id="energy_campus_resident" class="soflow">
+  			<option>Select an Option</option>
+  			<option value="swig" onclick="display_tabs('show')">Swig</option>
+  			<option value="sobrato" onclick="display_tabs('show')">Sobrato</option>
+  			<option value="sanfilippo" onclick="display_tabs('show')">Sanfilippo</option>
+  			<option value="walsh" onclick="display_tabs('show')">Walsh/McLaughlin</option>
+  			<option value="graham" onclick="display_tabs('show')">Graham</option>
+  			<option value="dunne" onclick="display_tabs('show')">Dunne</option>
+  			<option value="casa" onclick="display_tabs('show')">Casa</option>
+  			<option value="campisi" onclick="display_tabs('show')">Campisi</option>
+  			<option value="clare" onclick="display_tabs('show')">St. Clare</option>
+  			<option value="nobili" onclick="display_tabs('show')">Nobili</option>
+  			<option value="bellarmine" onclick="display_tabs('show')">Bellarmine </option>
+  		</select>
+
+
+  		<h3 class="fs-subtitle">From the following list of appliances, electronics, lighting, etc, input how many of each item are in
+  			 your dorm room.
+  		</h3>
+  		<table id="energytable" >
+  				<tr style="font-weight:bold;">
+  					<td width="25%" >ITEM</td>
+  					<td width="20%"># of items</td>
+  				</tr>
+
+  				<tr>
+            <td>Refrigerator</td>
+            <td><input  class="stdInput" id="appliance_1_total" type="text"  size="4" maxlength="1"/></td>
+          </tr>
+          
+          <tr>
+            <td>Microwave</td>
+            <td><input class="stdInput" id="appliance_2_total" type="text"  size="4" maxlength="1"/></td>
+          </tr>
+          
+          <tr>
+            <td>Clock radio</td>
+            <td><input class="stdInput" id="appliance_3_total" type="text"  size="4" maxlength="1"/></td>
+          </tr>
+          
+          <tr>
+            <td>Coffee maker</td>
+            <td><input class="stdInput" id="appliance_4_total" type="text"  size="4" maxlength="1"/></td>
+          </tr>
+          
+          <tr>
+            <td>UE Boom</td>
+            <td><input class="stdInput" id="appliance_5_total" type="text"  size="4" maxlength="1"/></td>
+          </tr>
+          
+          <tr>
+            <td>Computer desktop</td>
+            <td><input class="stdInput" id="appliance_6_total" type="text"  size="4" maxlength="1"/></td>
+          </tr>
+          
+          <tr>
+            <td>Computer monitor 15"</td>
+            <td><input class="stdInput" id="appliance_7_total" type="text"  size="4" maxlength="1"/></td>
+          </tr>
+          
+          <tr>
+            <td>Computer, laptop</td>
+            <td><input class="stdInput" id="appliance_8_total" type="text"  size="4" maxlength="1"/></td>
+          </tr>
+          
+          <tr>
+            <td>Printer</td>
+            <td><input class="stdInput" id="appliance_9_total" type="text"  size="4" maxlength="1"/></td>
+          </tr>
+          
+          <tr>
+            <td>TV</td>
+            <td><input class="stdInput" id="appliance_10_total" type="text"  size="4" maxlength="1"/></td>
+          </tr>
+          
+          <tr>
+            <td>Air conditioner</td>
+            <td><input class="stdInput" id="appliance_11_total" type="text"  size="4" maxlength="1"/></td>
+          </tr>
+          
+          <tr>
+            <td>Portable fan</td>
+            <td><input class="stdInput" id="appliance_12_total" type="text"  size="4" maxlength="1"/></td>
+          </tr>
+          
+          <tr>
+            <td>Space heater</td>
+            <td><input class="stdInput" id="appliance_13_total" type="text"  size="4" maxlength="1"/></td>
+          </tr>
+        
+          <tr>
+            <td>Incandescent light bulb</td>
+            <td><input class="stdInput" id="appliance_14_total" type="text"  size="4" maxlength="4"/></td>
+          </tr>
+          
+          <tr>
+            <td>Compact fluorescent light bulb</td>
+            <td><input class="stdInput" id="appliance_15_total" type="text"  size="4" maxlength="4"/></td>
+          </tr>
+          
+          <tr>
+            <td>Vacuum cleaner</td>
+            <td><input class="stdInput" id="appliance_16_total" type="text"  size="4" maxlength="1"/></td>
+          </tr>
+          
+          <tr>
+          </tr>
+
+  			</table>
+  		<input type="button" name="previous" class="previous action-button" value="Previous" />
+  		<input type="button" name="next" class="next action-button" value="Next" />
+  	</fieldset>
+        
+    <!--
+    The following field set is regarding food
+    -->
+
+    <fieldset>
+  		<h2 class="fs-title">Food</h2>
+  		<h3 class="fs-subtitle">Please select which meal plan you are currently on.</h3>
+
+  		<section class="section">
+  			<div class="container">
+  				<input type="radio" id="radio-18" name="is_meal" value="preferred" />
+  				<label for="radio-18"><span class="radio">Preferred</span></label>
+  			</div>
+  			<div class="container">
+  				<input type="radio" id="radio-19" name="is_meal" value="basic"/>
+  				<label for="radio-19"><span class="radio">Basic</span></label>
+  			</div>
+  			<div class="container">
+  				<input type="radio" id="radio-20" name="is_meal" value="junior_senior"/>
+  				<label for="radio-20"><span class="radio">Junior/Senior</span></label>
+  			</div>
+  			<div class="container">
+  				<input type="radio" id="radio-21" name="is_meal" value="basic"/>
+  				<label for="radio-21"><span class="radio">No Meal Plan</span></label>
+  			</div>
+  		</section>
+
+  		<h3 class="fs-subtitle">Please select which diet best applies to you. </h3>
+
+  		<section class="section">
+  			<div class="container">
+  				<input type="radio" id="radio-22" name="is_diet" value="vegan" />
+  				<label for="radio-22"><span class="radio">Vegan</span></label>
+  			</div>
+  			<div class="container">
+  				<input type="radio" id="radio-23" name="is_diet" value="vegetarian"/>
+  				<label for="radio-23"><span class="radio">Vegetarian</span></label>
+  			</div>
+  			<div class="container">
+  				<input type="radio" id="radio-24" name="is_diet" value="meat_eater"/>
+  				<label for="radio-24"><span class="radio">Omnivore</span></label>
+  			</div>
+  			<div class="container">
+  				<input type="radio" id="radio-25" name="is_diet" value="carnivore"/>
+  				<label for="radio-25"><span class="radio">X-treme meat eater</span></label>
+  			</div>
+  		</section>
+
+  		<h3 class="fs-subtitle">If you drink coffee please select from the following options: </h3>
+
+  		<select class="soflow">
+  			<option>Select an Option</option>
+    		<option value="black_coffee">Black Coffee</option>
+  			<option value="cream_sugar">Black Coffee + cream or sugar</option>
+  			<option value="latte">Latte</option>
+  		</select>
+
+  		<h3 class="fs-subtitle">Do you buy food at farmers markets?</h3>
+
+  		<section class="section">
+  			<div class="container">
+  				<input type="radio" id="radio-26" name="food_farmers_market" value="yes" onclick="display_comment('comment_farmers_market','Great decision! Buying locally grown food lowers your carbon emissions')" /> &nbsp;
+  				<label for="radio-26"><span class="radio">Yes</span></label>
+  			</div>
+  			<div class="container">
+  				<input type="radio" id="radio-27" name="food_farmers_market" value="no" onclick="display_comment('comment_farmers_market','You might want to check out the farmers market Saturday mornings in Santa Clara, or visit SCU&rsquo;s Forge Garden located on Benton Street.')" />
+  				<label for="radio-27"><span class="radio">No</span></label>
+  			</div>
+  			<p class="pop_up_comment" id="comment_farmers_market"></p>
+  		</section>
+
+  		<input type="button" name="previous" class="previous action-button" value="Previous" />
+  		<input type="button" name="next" class="next action-button" value="Next" />
+  	</fieldset>
+        
+    <!--
+    The following field set is regarding waste
+    -->
+
+    <fieldset>
+  		<h2 class="fs-title">Waste</h2>
+  		<h3 class="fs-subtitle">From the following scale decide how much of your waste is recycled (the average person recycles around 17% of their waste)</h3>
+
+  		<section class="section">
+  			<div class="container">
+  				<input type="radio" id="radio-28" name="radio_recycle" value="below_avg" />
+  				<label for="radio-28"><span class="radio">Below Average</span></label>
+  			</div>
+  			<div class="container">
+  				<input type="radio" id="radio-29" name="radio_recycle" value="avg" />
+  				<label for="radio-29"><span class="radio">Average</span></label>
+  			</div>
+  			<div class="container">
+  				<input type="radio" id="radio-30" name="radio_recycle" value="above_avg" />
+  				<label for="radio-30"><span class="radio">Above Average</span></label>
+  			</div>
+  		</section>
+
+  			<input type="button" name="previous" class="previous action-button" value="Previous" />
+  			<input type="button" name="next" class="next action-button" value="Next" />
+  	</fieldset>
+
+    <!--
+    The following field set is regarding water
+    -->
+    <fieldset>
+        <h2 class="fs-title">Water</h2>
+        <h3 class="fs-subtitle">On average how long are your showers?</h3>
+            <input class="stdInput" id="water_showers_duration" type="text"  size="5" maxlength="4" style="margin-bottom: 20px"/>
+        <h3 class="fs-subtitle">On average how many showers/week?</h3>
+            <input class="stdInput" id="water_showers_times" type="text"  size="5" maxlength="4" style="margin-bottom: 20px"/>
+        <h3 class="fs-subtitle">On average how many loads of laundry/month?</h3>
+            <input class="stdInput" id="water_laundry" type="text"  size="5" maxlength="4" style="margin-bottom: 20px"/>
+        <h3 class="fs-subtitle">Average toilet flushes/day?</h3>
+            <input class="stdInput" id="water_flush" type="text"  size="5" maxlength="4" style="margin-bottom: 20px"/>
+
+        <p>  </p>
+        <input type="button" name="previous" class="previous action-button" value="Previous" />
+        <input type="button" name="next"  onclick="showResult()" class="next action-button" value="Next" />
+    </fieldset>
+    
+    <!--
+    The following field set is regarding getting involved
+    -->
+    
+     <fieldset>
+  		<h2 class="fs-title">Getting Involved!</h2>
+  		<h3 class="fs-subtitle">Do you want to get involved in clubs that support the enviornment at SCU?</h3>
+
+  		<section id="first" class="section">
+      	<div class="container">
+        	<input type="radio" id="radio-31" name="get_involved" value="yes" onclick="display_comment('comment_get_involved','Great decision! There are plenty of clubs to help get involved! Here is the link to SCU's Center for Sustainability website: https://www.scu.edu/sustainability/)">
+        	<label for="radio-31"><span class="radio">Yes</span></label>
+      	</div>
+      	<div class="container">
+        	<input type="radio" id="radio-32" name="get_involved" value="no" onclick="display_comment('comment_get_involved','You might want to consider becoming involved on the future of the planet and the enviornment.')">
+        	<label for="radio-32"><span class="radio">No</span></label>
+      	</div>
+  			<p class="pop_up_comment" id="comment_get_involved"></p>
+  		</section>
+  		
+  		<h3 class="fs-subtitle">Do you consistently get your food 'to go' from Benson??</h3>
+
+  		<section id="first" class="section">
+      	<div class="container">
+        	<input type="radio" id="radio-33" name="food_to_go" value="yes" onclick="display_comment('comment_food_to_go','Then you should highly consider buying an eco-tray which costs only 5$ and will last you the whole quarter! If you get your food 'to go' at least 20 times a quarter then you are saving yourself money! On top of that if you return it by the end of the quarter you get your 5 dollars back!')">
+        	<label for="radio-33"><span class="radio">Yes</span></label>
+      	</div>
+      	<div class="container">
+        	<input type="radio" id="radio-34" name="food_to_go" value="no" onclick="display_comment('comment_food_to_go','Good decision! Just remember to return your plates and silverware when you are done eating.')">
+        	<label for="radio-34"><span class="radio">No</span></label>
+      	</div>
+  			<p class="pop_up_comment" id="comment_food_to_go"></p>
+  		</section>
+  		
+  		<h3 class="fs-subtitle">Would you like to work to improve enviornmental conditions at Santa Clara University and in the surrounding community?</h3>
+
+  		<section id="first" class="section">
+      	<div class="container">
+        	<input type="radio" id="radio-35" name="improve_env" value="yes" onclick="display_comment('comment_improve_env','Then you should consider joining Grass Roots Enviornmental Now. They do exactly what this question asks exacly what this club does.')">
+        	<label for="radio-35"><span class="radio">Yes</span></label>
+      	</div>
+      	<div class="container">
+        	<input type="radio" id="radio-36" name="improve_env" value="no" onclick="display_comment('comment_improve_env','That is perfectly fine. We understand that you are busy university students with a lot of things to do.')">
+        	<label for="radio-36"><span class="radio">No</span></label>
+      	</div>
+  			<p class="pop_up_comment" id="comment_improve_env"></p>
+  		</section>
+  		
+  		<h3 class="fs-subtitle">Would you like to to take action about enviornmental injustices across the world?</h3>
+
+  		<section id="first" class="section">
+      	<div class="container">
+        	<input type="radio" id="radio-37" name="enact" value="yes" onclick="display_comment('comment_enact','Then you should consider joining ENACT which is a part of SCCAP. They educate their members on enviornmental injustices across the planet.')">
+        	<label for="radio-37"><span class="radio">Yes</span></label>
+      	</div>
+      	<div class="container">
+        	<input type="radio" id="radio-38" name="enact" value="no" onclick="display_comment('comment_enact','That perfectly fine! You should understand though that there are a multitude of enviornemntal injustices across the world, it might be worth educating yourself on these issues! You should also join the justice email group!')">
+        	<label for="radio-38"><span class="radio">No</span></label>
+      	</div>
+  			<p class="pop_up_comment" id="comment_enact"></p>
+  		</section>
+  		
+  		<h3 class="fs-subtitle">Do you enjoy gardening or eating healthy foods?</h3>
+
+  		<section id="first" class="section">
+      	<div class="container">
+        	<input type="radio" id="radio-39" name="forge_garden" value="yes" onclick="display_comment('comment_forge_garden','Then you should consider joining the Forge Garden club on campus. They have lots of fun events and hold a farmer's market every friday.')">
+        	<label for="radio-39"><span class="radio">Yes</span></label>
+      	</div>
+      	<div class="container">
+        	<input type="radio" id="radio-40" name="forge_garden" value="no" onclick="display_comment('comment_forge_garden','You might want to consider becoming involved on the future of the planet and the enviornment.')">
+        	<label for="radio-40"><span class="radio">No</span></label>
+      	</div>
+  			<p class="pop_up_comment" id="comment_forge_garden"></p>
+  		</section>
+  		
+  		<h3 class="fs-subtitle">Do you believe that food waste is a problem at Santa Clara University?</h3>
+
+  		<section id="first" class="section">
+      	<div class="container">
+        	<input type="radio" id="radio-41" name="food_waste" value="yes" onclick="display_comment('comment_food_waste','Then maybe you should consider joining the Food Recovery Network! The FRN meets twice a week to collect food and give it away to the San Jose soup kitchen. Go to the bottom of this website if you would like to volunteer.')">
+        	<label for="radio-41"><span class="radio">Yes</span></label>
+      	</div>
+      	<div class="container">
+        	<input type="radio" id="radio-42" name="food_waste" value="no" onclick="display_comment('comment_food_waste','You might want to consider becoming involved on the future of the planet and the enviornment.')">
+        	<label for="radio-42"><span class="radio">No</span></label>
+      	</div>
+  			<p class="pop_up_comment" id="comment_food_waste"></p>
+  		</section>
+  		
+  			
+  		<h3 class="fs-subtitle">Would you like to work to improve enviornmental conditions at Santa Clara University and in the surrounding community?</h3>
+
+  		<section id="first" class="section">
+      	<div class="container">
+        	<input type="radio" id="radio-43" name="improve_enviornment" value="yes" onclick="display_comment('comment_improve_enviornment','Then you should consider joining Bronco Urban Gardens(BUG) which outreaches with the rest of the community to support gardening.')">
+        	<label for="radio-43"><span class="radio">Yes</span></label>
+      	</div>
+      	<div class="container">
+        	<input type="radio" id="radio-44" name="improve_enviornment" value="no" onclick="display_comment('comment_improve_enviornment','That is perfectly fine. We understand that you are busy university students with a lot of things to do.')">
+        	<label for="radio-44"><span class="radio">No</span></label>
+      	</div>
+  			<p class="pop_up_comment" id="comment_improve_enviornment"></p>
+  		</section>
+  		
+  		<p>  </p>
+        <input type="button" name="previous" class="previous action-button" value="Previous" />
+        <input type="button" name="next"  onclick="showResult()" class="next action-button" value="Next" />
+    </fieldset>
+  		
+
+        
+    <!--
+    The following field set is regarding results
+    -->
+    <fieldset>
+     <h2 class="fs-title">Results</h2>   
+    
+    <!--
+    Here we use google api for making a pie chart
+    -->
+    <div id="piechart_3d" style="width: 900px; height: 500px;"></div>
+   
+    <!--
+    We also included a statistics table shown below
+    -->
+    <p>&nbsp;</p>
+        <table cellpadding="0" cellspacing="0" style="margin: auto;">
+        <tr style="border-bottom:solid thin #000">
+            <th width="150px">Category</th>
+            <th>KgCO2e / year<a class="help" id="help" title="The tacked on &quot;e&quot; to kg CO2 means the carbon dioxide equivalent and is most widely used to measure greenhouse emissions.  All greenhouse gases have potential to warm the atmosphere, thus accounted for when you see emissions in terms of CO2e"> <img src="images/help.png" width="18px" /></a></th>
+            <th>Percentage</th></tr>
+
+        <tr>
+            <td style="font-weight:bold;">Transportation</td>
+            <td id="transportation_tab_total">empty</td>
+            <td id="transportation_tab_percentage">empty</td></tr>
+
+        <tr>
+            <td style="font-weight:bold;">Partying</td>
+            <td id="partying_tab_total">empty</td>
+            <td id="partying_tab_percentage">empty</td></tr>
+
+        <tr>
+            <td style="font-weight:bold;">Consumption</td>
+            <td id="consumption_tab_total">empty</td>
+            <td id="consumption_tab_percentage">empty</td></tr>
+
+        <tr>
+            <td style="font-weight:bold;">Energy</td>
+            <td id="energy_tab_total">empty</td>
+            <td id="energy_tab_percentage">empty</td></tr>
+
+        <tr>
+            <td style="font-weight:bold;">Food</td>
+            <td id="food_tab_total">empty</td>
+            <td id="food_tab_percentage">empty</td></tr>
+
+        <tr>
+            <td style="font-weight:bold;">Waste</td>
+            <td id="waste_tab_total">empty</td>
+            <td id="waste_tab_percentage">empty</td></tr>
+
+        <tr>
+            <td style="font-weight:bold;">Water</td>
+            <td id="water_tab_total">empty</td>
+            <td id="water_tab_percentage">empty</td></tr>
+        <tr>
+            <td style="font-weight:bold;">Total:</td>
+            <td style="font-weight:bold;" id="carbon_total">empty</td>
+            <td style="font-weight:bold;" id="carbon_total_percentage">empty</td></tr>
+        </table>
+        <div id="result_bar" style="z-index:100; position:relative; left:-25px;"></div>
+
+
+
+
+        <input type="button" name="previous" class="previous action-button" value="Previous" />
+    </fieldset>
+
+
+
+
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<!-- jQuery easing plugin -->
+<script src="animations.js" type="text/javascript"></script>
+
+</form>

@@ -1,0 +1,49 @@
+/*Set Color*/
+.set{border-bottom:1px solid #aaa}
+.set2{border-bottom:2px solid #000}
+.calc_introduction{background:#93191B; color:white; }
+.transportation{background-color:#C77B3F;}
+.partying{background-color:#FFC732;}
+.consumption{background-color:#007C90;}
+.energy{background-color:#AD6F08;}
+.food{background-color:#8F24F9;}
+.waste{background-color:#ABCDEF;}
+.water{background-color:#FEDCBA;}
+.ethics{background:#93191B;}
+.result{background-color:white;}
+.extra{background-color:white;}
+
+
+
+.accordionWrapper{overflow:hidden; margin:0 auto;}
+.accordionWrapper img{vertical-align:top; border:0; margin:0; padding:0;}
+.accordionWrapper div{display:inline; float:left; margin:auto;}
+.accordionWrapper div.title{
+	font-family:Verdana;
+	cursor:pointer;
+	text-align:center;
+	width:600px;
+	font-weight:bold;
+	}
+.accordionWrapper div.content{
+	display:none; 
+	text-align:left; 
+	background-color:inherit; 
+	padding-left: 20px;
+	padding-right:20px;
+	width:560px;}
+
+.accordionWrapper h1{
+	font-size:18px;
+	color:#A99A76;
+	text-align:center;
+	font-family:Georgia, "Times New Roman", Times, serif;
+}
+
+.accordionWrapper a{text-decoration:none;color:#666666}
+
+.pop_up_comment{display:none; color:#900; font-weight:bold; margin:0px; padding:0px;}
+
+#CS_CCF_2588828_2519381 {
+	display:none;
+	}
